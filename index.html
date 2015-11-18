@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Angular Groceries</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app='myModule'>
+  <div  ng-controller='myController'>
+  	<h1>My Grocery List</h1>
+  	 <h3>Enter an item in the first box and it's cost in the second box</h3>
+      <h2>Item:
+        <input type="text" ng-model="newItem"> 
+         @  Cost:
+        <input type="number" ng-model="newPrice">  
+        <button ng-click="add()">add</button>
+      </h2>
+
+      <ul ng-repeat='grocery in groceryItems | filter: groceryItemOrPrice'>
+            <li>{{grocery.item}} {{grocery.price | currency}}</li>
+      </ul>
+
+      <h2>Total: {{total | currency}}</h2>
+
+      <p>
+        <h3>Looking to search your list?</h3>
+        <h2>Search:<input type="text" ng-model="groceryItemOrPrice"></h2>
+      </p>
+
+  </div>
+  
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
